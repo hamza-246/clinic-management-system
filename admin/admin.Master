@@ -1,0 +1,266 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="clinic_management_system.admin.admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>CMS Admin Panel</title>
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
+  <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
+
+  <!-- PLUGINS CSS STYLE -->
+  <link href="assets/plugins/toaster/toastr.min.css" rel="stylesheet" />
+  <link href="assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
+  <link href="assets/plugins/flag-icons/css/flag-icon.min.css" rel="stylesheet"/>
+  <link href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+  <link href="assets/plugins/ladda/ladda.min.css" rel="stylesheet" />
+  <link href="assets/plugins/select2/css/select2.min.css" rel="stylesheet" />
+  <link href="assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <!-- SLEEK CSS -->
+  <link rel="stylesheet" href="assets/css/sleek.css" />
+
+  
+
+  <!-- FAVICON -->
+  <link href="assets/img/favicon.png" rel="shortcut icon" />
+
+
+  <script src="assets/plugins/nprogress/nprogress.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="sidebar-fixed sidebar-dark header-light header-fixed" id="body">
+    <form id="form1" runat="server">
+        <div>
+
+            <script>
+      NProgress.configure({ showSpinner: false });
+      NProgress.start();
+            </script>
+
+    <div class="mobile-sticky-body-overlay"></div>
+
+    <div class="wrapper">
+      
+              <!--
+          ====================================
+          ——— LEFT SIDEBAR WITH FOOTER
+          =====================================
+        -->
+        <aside class="left-sidebar bg-sidebar">
+          <div id="sidebar" class="sidebar sidebar-with-footer bg-white">
+            <!-- Aplication Brand -->
+            <div class="bg-white p-3">
+              <a href="../index.aspx"><img width="100%" src="assets/img/logo1.png" alt=""></a>
+            </div>
+            <!-- begin sidebar scrollbar -->
+            <div class="sidebar-scrollbar">
+
+              <!-- sidebar menu -->
+              <ul class="nav sidebar-inner" id="sidebar-menu">
+                
+
+                
+                <li  class="has-sub active expand">
+                  <a class="sidenav-item-link" href="admin.aspx">
+                  <i class="mdi mdi-view-dashboard-outline" style="color: #b0b435 !important;"></i>
+                   <span class="nav-text text-dark">Dashboard</span></a>
+                  
+                  <ul  class="collapse show"  id="dashboard"
+                    data-parent="#sidebar-menu">
+                 
+                  </ul>
+                </li>
+                
+
+                
+
+                
+                  <li  class="has-sub" >
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
+                      aria-expanded="false" aria-controls="ui-elements">
+                      <i class="fas fa-prescription-bottle-alt" style="color: #b0b435 !important;"></i>
+                      <span class="nav-text">Products</span> <b class="caret"></b>
+                    </a>
+                    <ul  class="collapse" id="ui-elements"
+                      data-parent="#sidebar-menu">
+                      <div class="sub-menu" style="background-color: #b0b435;">
+                        
+                        
+                        <li  class="has-sub" >
+                          <a class="sidenav-item-link" href="medicine.aspx">
+                              <i class="fas fa-capsules" style="color:white !important;margin-right:6px;"></i>
+                            <span class="nav-text text-white">Medicine</span> 
+                          </a>
+                          </li>
+
+                          <li  class="has-sub" >
+                            <a class="sidenav-item-link" href="machine.aspx">
+                                <i class="fas fa-tools" style="color:white !important;margin-right:6px;"></i>
+                              <span class="nav-text text-white">Machine</span>
+                            </a>
+                            </li>
+                    </div>
+                    </ul>
+                  </li>
+                
+
+                <li  class="has-sub" >
+                    <a class="sidenav-item-link" href="clinicdetails.aspx">
+                      <i class="mdi mdi-hospital" style="color: #b0b435 !important;"></i>
+                      <span class="nav-text">Clinic User Details</span>
+                    </a>
+                  </li>
+
+                
+                  <li  class="has-sub" >
+                    <a class="sidenav-item-link" href="orderdetail.aspx">
+                      <i class="mdi mdi-chart-pie" style="color: #b0b435 !important;"></i>
+                      <span class="nav-text">Order Details</span>
+                    </a>
+                  </li>
+                
+
+                
+
+                
+                  <li  class="has-sub" >
+                    <a class="sidenav-item-link" href="feedback.aspx">
+                      <i class="fas fa-comment-alt" style="color: #b0b435 !important;font-size:19px;"></i>
+                      <span class="nav-text">Feedbacks</span>
+                    </a>
+                  </li>
+
+                
+              </ul>
+
+            </div>
+
+            <hr class="separator" />
+
+            
+          </div>
+        </aside>
+
+      
+
+      <div class="page-wrapper">
+                  <!-- Header -->
+          <header class="main-header " id="header">
+            <nav class="navbar navbar-static-top navbar-expand-lg" style="background-color: #b0b435;color: #fff !important;">
+              <!-- Sidebar toggle button -->
+              <button id="sidebar-toggler" class="sidebar-toggle text-white">
+                <span class="sr-only">Toggle navigation</span>
+              </button>
+              <!-- search form -->
+              <div class="search-form d-none d-lg-inline-block">
+                <div class="input-group"><a  href="../index.aspx">
+                  <button style="font-size:medium;" type="button" name="search" id="search-btn" class="btn btn-flat text-white">
+                    <i class="fas fa-globe"></i> Go to website
+                  </button></a>
+                </div>
+              </div>
+
+              <div class="navbar-right ">
+                <ul class="nav navbar-nav">
+                  <!-- Github Link Button -->
+                  <!-- <li class="github-link mr-3">
+                    <a class="btn btn-outline-secondary btn-sm" href="https://github.com/tafcoder/sleek-dashboard" target="_blank">
+                      <span class="d-none d-md-inline-block mr-2">Source Code</span>
+                      <i class="mdi mdi-github-circle"></i>
+                    </a>
+
+                  </li> -->
+                 
+                  <!-- User Account -->
+                  <li class="dropdown user-menu">
+                    <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                      <img src="assets/img/user/user.png" class="user-image" alt="User Image" />
+                      <span class="d-none d-lg-inline-block text-white">Admin </span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <!-- User image -->
+                      <li class="dropdown-header">
+                        <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
+                        <div class="d-inline-block">
+                          Admin 
+                            <br />
+
+                            <asp:Label ID="Label1" class="pt-1" runat="server" Text=""></asp:Label>
+                        </div>
+                      </li>
+
+                      <li>
+                        <a href="profile.html">
+                          <i class="mdi mdi-account"></i> My Profile
+                        </a>
+                      </li>
+
+                      <li class="dropdown-footer">
+                          <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><i class="mdi mdi-logout"></i> Log Out</asp:LinkButton>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+
+          </header>
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+         
+
+             <footer class="footer mt-auto">
+            <div class="copyright bg-white">
+              <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2021 <asp:LinkButton runat="server" href="../index.aspx">Clinic Management System</asp:LinkButton> Design By : Aptechsite 1909a Students:
+            <asp:LinkButton runat="server" href="../images/MUHAMMAD OWAIS.pdf">Owais</asp:LinkButton> and <asp:LinkButton runat="server" href="../images/Muhammad Hamza.pdf">Hamza</asp:LinkButton></p>
+    </div>
+            </div>
+            <script>
+                var d = new Date();
+                var year = d.getFullYear();
+                document.getElementById("copy-year").innerHTML = year;
+            </script>
+          </footer>
+
+      </div>
+    </div>
+
+    
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCn8TFXGg17HAUcNpkwtxxyT9Io9B_NcM" defer></script>
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/plugins/toaster/toastr.min.js"></script>
+<script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
+<script src="assets/plugins/charts/Chart.min.js"></script>
+<script src="assets/plugins/ladda/spin.min.js"></script>
+<script src="assets/plugins/ladda/ladda.min.js"></script>
+<script src="assets/plugins/jquery-mask-input/jquery.mask.min.js"></script>
+<script src="assets/plugins/select2/js/select2.min.js"></script>
+<script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+<script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill.js"></script>
+<script src="assets/plugins/daterangepicker/moment.min.js"></script>
+<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="assets/plugins/jekyll-search.min.js"></script>
+<script src="assets/js/sleek.js"></script>
+<script src="assets/js/chart.js"></script>
+<script src="assets/js/date-range.js"></script>
+<script src="assets/js/map.js"></script>
+<script src="assets/js/custom.js"></script>
+
+
+        </div>
+    </form>
+</body>
+</html>
